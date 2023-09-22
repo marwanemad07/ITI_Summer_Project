@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using OnlineShop.ViewModels
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container mt-3 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <div class="card shadow-lg border-0 rounded-lg mt-3">
+                <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                <div class="card-body">
+                    <form method="post" asp-controller="Login" asp-action="UserLogin">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputEmail" type="text" placeholder="username" asp-for="Username" />
+                            <label for="inputEmail" asp-for="Username">Username</label>
+                            <span asp-validation-for="Username"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputPassword" type="password" placeholder="Password" asp-for="Password" />
+                            <label asp-for="Password">Password</label>
+                            <span asp-validation-for="Password"></span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
+                            <button class="btn btn-primary" asp-action="UserLogin">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center py-3">
+                    <div class="small"><a asp-controller="Register" asp-action="Index">Need an account? Sign up!</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

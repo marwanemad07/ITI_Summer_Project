@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using OnlineShop.ViewModels;
+@model List<CartItemsViewModel>;
+@{
+    ViewData["Title"] = "Cart";
+    Layout = "_CustomerLayout";
+}
+
+<table class="table mt-4 mb-4">
+    <thead>
+        <tr>
+            @*<th scope="col">#</th>*@
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Image</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+         @foreach(var P in Model){
+            <tr class="table-info">
+
+                <td>@P?.ProductName</td>
+                <td>@P?.Price</td>
+                <td>@P?.Quantity</td>
+                <td><img style="width:70px;height:70px" src="~/Images/@P?.Image" /></td>
+                <td>
+                    @if(P?.Quantity == 1){
+                        <a class="btn btn-danger" asp-action="DecreaseItem" asp-route-ProductId="@P.ProductId" asp-route-CartId="@P.CartId">Delete</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-danger" asp-action="DecreaseItem" asp-route-ProductId="@P.ProductId" asp-route-CartId="@P.CartId"> Decrease</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary mt-1" asp-action="Checkout" asp-route-CartId="@ViewBag.CartId">Checkout</a>

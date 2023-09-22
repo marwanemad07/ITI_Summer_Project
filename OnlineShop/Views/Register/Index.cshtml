@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using OnlineShop.ViewModels;
+@{
+    ViewData["Title"] = "Register";
+}
+@model RegisterViewModel;
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card shadow-lg border-0 rounded-lg mt-3">
+                <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                <div class="card-body">
+                    <form method="post" asp-action="CreateAccount">
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Username" class="form-control" type="text" placeholder="username">
+                            <label asp-for="Username"></label>
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input asp-for="Password" class="form-control" type="password" placeholder="Create a password" aria-autocomplete="list">
+                                    <label asp-for="Password"></label>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input asp-for="ConfirmPassword" class="form-control" type="password" placeholder="Confirm password">
+                                    <label asp-for="ConfirmPassword" >Confirm Password</label>
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Age" class="form-control" type="number" placeholder="Your Age">
+                            <label asp-for="Age"></label>
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>
+                        <div class="mt-4 mb-0">
+                            <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Create Account</button></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center py-3">
+                    <div class="small"><a asp-controller="Login" asp-action="Index">Have an account? Go to login</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

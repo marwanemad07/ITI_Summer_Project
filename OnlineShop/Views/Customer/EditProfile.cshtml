@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using OnlineShop.ViewModels;
+@{
+    ViewData["Title"] = "Edit Profile";
+    Layout = "_CustomerLayout";
+}
+@model CustomerEditProfileViewModel;
+<form method="post" asp-controller="Customer" asp-action="EditProfile" asp-route-id="@Model.Id" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control">
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Age"></label>
+        <input asp-for="Age" class="form-control">
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image"></label>
+        <input asp-for="Image" type="file" class="form-control">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary m-md-1">Submit</button>
+</form>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

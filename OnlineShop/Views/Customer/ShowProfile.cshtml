@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using OnlineShop.ViewModels;
+@model CustomerViewModel;
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "_CustomerLayout";
+}
+
+<div class="cardContainer">
+    <div class="mybox mt-5 mb-lg-5">
+        <div class="my-product-img ">
+            <img src="~/Images/@Model?.Image" width="250" alt="" />
+        </div>
+        <div class="my-product-info">
+            <h1 class="myH1">@Model.Username</h1>
+            <p class="myprice">$@Model.Money</p>
+            <br></br>
+            <p class="myprice">Your Age: @Model.Age</p>
+            <div style="display:flex; justify-content:center;">
+                <a class="btn btn-primary m-lg-1" asp-action="EditProfile" asp-route-id="@Model.Id">Edit Profile</a>
+                <a class="btn btn-primary m-lg-1" asp-action="ChangePassword" asp-route-id="@Model.Id">Change Password</a>
+            </div>
+        </div>
+    </div>
+</div>

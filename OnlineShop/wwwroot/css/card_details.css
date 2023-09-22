@@ -1,0 +1,74 @@
+@media only screen and (max-device-width: 480px) {
+    .mybox {
+        margin: 20px;
+    }
+
+    .my-product-info {
+        margin: 20px;
+    }
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.mybox {
+    width: 700px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 30px 0 #999;
+    padding-right: 20px;
+}
+
+.my-product-img {
+    width: 48%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+}
+
+    .my-product-img img {
+        width: 100%;
+        height: 100%;
+        transition: all 0.5s linear;
+        &:hover
+
+{
+    transform: scale(1.03);
+}
+
+}
+
+.my-product-info {
+    float: right;
+    width: 48%;
+    margin-top: 20px;
+}
+
+.myH1 {
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 2.5em;
+    word-wrap: break-word;
+    color: #333;
+    font-family: "Archivo Black", sans-serif;
+}
+
+.myprice {
+    margin-top: -40px;
+    font-size: 25px;
+    font-weight: bolder;
+    color: coral;
+}
+
+.mydescription {
+    margin-top: -20px;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #555;
+}

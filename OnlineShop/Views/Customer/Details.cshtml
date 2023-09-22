@@ -1,0 +1,9 @@
+﻿@using OnlineShop.ViewModels;
+@model ProductViewModel;
+@{
+    ViewData["Title"] = $"{Model.Name}-Details";
+    Layout = "_CustomerLayout";
+}
+
+
+<partial name="~/Views/Shared/DetailsPartialView.cshtml" />

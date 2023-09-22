@@ -1,0 +1,37 @@
+﻿@using OnlineShop.ViewModels;
+@using OnlineShop.Models;
+@{
+    ViewData["Title"] = "Customer";
+    Layout = "_CustomerLayout";
+}
+@model List<Product>
+<div class="container px-4 px-lg-5 mt-5">
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5">
+        @foreach (var P in Model)
+        {
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">@P.Name</h2>
+                        <img src="~/Images/@P?.Image" style="height:110px;width:160px;" class="justify-content-center" />
+                        <p class="card-text">@P.Description.Substring(0, Math.Min(70, P.Description.Length)) ...</p>
+                        <h6 class="card-text">@P.UnitPrice L.E</h6>
+                        @if (P.UnitsInStock == 0)
+                        {
+                            <h6 class="card-title">Out of Stock</h6>
+                        }
+                        else
+                        {
+                            <h6 class="card-title">@P.UnitsInStock in Stock</h6>
+                        }
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@P.Id">Details</a>
+                        <a class="btn btn-success btn-sm" asp-action="AddToCart" asp-route-id="@P.Id">Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
